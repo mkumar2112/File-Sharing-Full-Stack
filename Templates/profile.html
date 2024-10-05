@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}Update Profile{% endblock %}
+
+{% block 'body' %} <!-- Corrected the block declaration -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Update Your Profile</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8"> <!-- This will cover about 66.67% width -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email (cannot be changed)</label>
+                            {{ form.email|add_class:"form-control form-control-sm" }}  <!-- Email is read-only -->
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.first_name.id_for_label }}" class="form-label">First Name (optional)</label>
+                            {{ form.first_name|add_class:"form-control form-control-sm" }}
+                            {{ form.first_name.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.last_name.id_for_label }}" class="form-label">Last Name (optional)</label>
+                            {{ form.last_name|add_class:"form-control form-control-sm" }}
+                            {{ form.last_name.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password.id_for_label }}" class="form-label">New Password (optional)</label>
+                            {{ form.password|add_class:"form-control form-control-sm" }}
+                            {{ form.password.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.confirm_password.id_for_label }}" class="form-label">Confirm Password</label>
+                            {{ form.confirm_password|add_class:"form-control form-control-sm" }}
+                            {{ form.confirm_password.errors }}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                    </form>
+                    <p class="text-muted text-center mt-3">Leave fields blank if you do not wish to update them.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

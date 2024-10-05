@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}About{% endblock %}  <!-- Corrected block declaration -->
+
+{% block 'body' %}  <!-- Corrected the block declaration -->
+
+<div class="container mt-5">
+    <div class="about-box">
+        <h1 class="text-center mb-4">About Our File Sharing Application</h1>
+        <p>Welcome to our File Sharing Application, where simplicity meets efficiency! Our platform is designed to facilitate seamless and secure file sharing for individuals and businesses alike.</p>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>Easy File Uploads:</strong> Quickly upload files with a user-friendly interface.</li>
+            <li><strong>Secure Sharing:</strong> Share files safely with end-to-end encryption.</li>
+            <li><strong>Access Control:</strong> Manage who can view or download your files.</li>
+            <li><strong>Multi-File Support:</strong> Share multiple files at once with just a few clicks.</li>
+            <li><strong>Real-Time Notifications:</strong> Get notified when your get file from other </li>
+        </ul>
+
+        <h2>Comming Soon</h2>
+        <ul>
+            <li><strong>Multi-File Support:</strong> Share multiple files at once with just a few clicks.</li>
+            <li><strong>Real-Time Notifications:</strong> Get notified when your files are accessed or downloaded.</li>
+        </ul>
+
+        <h2>Our Mission</h2>
+        <p>We aim to make file sharing simple and accessible for everyone, ensuring that you can share your important documents with ease and confidence. Whether you're collaborating with a team or sharing personal files, our application has you covered.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, please feel free to reach out to us at <a href="mailto:support@filesharingapp.com">support@filesharingapp.com</a>. We're here to help!</p>
+    </div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<style>
+    .about-box {
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    }
+
+    h1, h2, p {
+        color: #333; /* Text color */
+    }
+
+    ul {
+        list-style-type: none; /* Removes bullet points */
+        padding-left: 0; /* Removes default padding */
+    }
+
+    li {
+        margin-bottom: 10px; /* Adds space between list items */
+    }
+</style>
+
+{% endblock %}

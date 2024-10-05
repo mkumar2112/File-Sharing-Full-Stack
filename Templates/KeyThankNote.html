@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+{% block title %}Transfer Your File{% endblock title %}
+
+{% block 'body' %}
+<style>
+    .custom-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+
+    .alert {
+        margin-top: 20px;
+    }
+
+    .alert strong {
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="custom-container mt-5">
+    <h2 class="text-center mb-4">File Transfer Status</h2>
+    
+    {% if key %}
+        <div class="alert alert-info" role="alert">
+            <strong>Your Key:</strong> {{ key }}
+        </div>
+    {% endif %}
+    
+    {% if message %}
+        <div class="alert alert-warning" role="alert">
+            <strong>Message:</strong> {{ message }}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

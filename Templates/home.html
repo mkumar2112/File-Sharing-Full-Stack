@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>File post</title>
+
+    <style>
+        body {
+            background-image: url("static/image/1.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white; /* Change text color for better visibility */
+        }
+
+        /* Centering container and adding some spacing */
+        .container {
+            max-width: 900px; /* Increased width for a better layout */
+            margin: auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.7); /* Stronger shadow effect */
+        }
+
+        /* Additional styling for the videos */
+        video {
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Shadow effect for videos */
+        }
+
+        .btn-primary {
+            margin-top: 20px; /* Space above the button */
+            background-color: #007bff; /* Bootstrap primary color */
+            border: none;
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+        h2 {
+            margin-bottom: 30px; /* Spacing below the title */
+        }
+
+        /* Responsive video layout */
+        @media (max-width: 768px) {
+            .col-6 {
+                margin-bottom: 20px; /* More space between videos on small screens */
+            }
+        }
+    </style>
+</head>
+<body class="body">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">File Post</h2>
+    
+    <!-- Video Layout using Bootstrap grid -->
+    <div class="row">
+        <!-- First Video -->
+        <div class="col-6 mb-3">
+            <video id="player1" autoplay muted class="w-100">
+                <source src="static/video/01.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <!-- Second Video -->
+        <div class="col-6 mb-3">
+            <video id="player2" muted class="w-100">
+                <source src="static/video/02.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Third video in the second row -->
+    <div class="row">
+        <div class="col-6 mb-3">
+            <video id="player3" muted class="w-100">
+                <source src="static/video/03.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Fourth video in the second row -->
+        <div class="col-6 mb-3">
+            <video id="player4" muted class="w-100">
+                <source src="static/video/04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <a href="{% url 'login' %}">
+        <button class="btn btn-primary w-100 py-2" type="button">
+            Sign Up
+        </button>
+    </a>
+</div>
+
+<!-- JavaScript to play videos continuously -->
+<script>
+    const video1 = document.getElementById('player1');
+    const video2 = document.getElementById('player2');
+    const video3 = document.getElementById('player3');
+    const video4 = document.getElementById('player4');
+
+    video1.addEventListener('ended', function() {
+        video2.play();  // Play video 2 after video 1 ends
+    });
+
+    video2.addEventListener('ended', function() {
+        video3.play();  // Play video 3 after video 2 ends
+    });
+
+    video3.addEventListener('ended', function() {
+        video4.play();  // Play video 4 after video 3 ends
+    });
+
+    video4.addEventListener('ended', function() {
+        video1.currentTime = 0;
+        video1.play();  // Loop back to video 1 after video 4 ends
+    });
+</script>
+
+<!-- Optional JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
